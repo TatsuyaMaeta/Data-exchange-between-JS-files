@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ファイルを跨った変数の共有</title>
+    </head>
+    <body>
+        <h2>ファイルを跨った変数の共有</h2>
+        <h3>
+            このファイルでmodule化された<br />
+            JSファイルの動きについて確認する時は<br />
+            Live Serverを起動させて確認しましょう。<br>
+            file:~~では正常に起動しません
+        </h3>
+        <p>
+            Live Serverについては<a
+                href="https://webdesign-trends.net/entry/14461"
+                target="_brank"
+                >コチラ</a
+            >
+        </p>
+        <button id="btn" style="width: 100px; height: 40px">ボタン</button>
+
+        <script src="./js/func1.js"></script>
+        <script src="./js/func2.js"></script>
+        <script type="module" src="./js/func3.js"></script>
+
+        <!-- ↓これだとfunc3.jsでsubfunc1を読み込めません -->
+        <!-- <script src="./js/func3.js"></script> -->
+
+        <script>
+            var aisatsu = f1_greeting();
+            alert(aisatsu);
+
+            var company = "Gs Academy";
+            goto(f1_greeting(), company); //hello, Im going Gs Academy school.
+        </script>
+    </body>
+</html>
